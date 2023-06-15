@@ -90,6 +90,7 @@ function writeToFile(fileName, data) {
 
 // Created a function to initialize app
 function init() {
+    // declared a variable to store the file name
     var fileName = 'README.md';
     writeToFile(fileName, data);
 }
