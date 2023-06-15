@@ -26,6 +26,18 @@ questions.push({
 });
 questions.push({
     type: 'input',
+    message: 'Choose a license:',
+    name: 'license',
+    choices: [
+        'MIT',
+        'Apache',
+        'GPL',
+        'BSD',
+        'None'
+    ]
+});
+questions.push({
+    type: 'input',
     message: 'Contribution Guidelines?',
     name: 'guidelines'
 });
@@ -33,12 +45,6 @@ questions.push({
     type: 'input',
     message: 'Test Instructions?',
     name: 'testInstructions'
-});
-questions.push({
-    type: 'input',
-    message: 'Choose a license:',
-    name: 'license',
-    choices: ['MIT']
 });
 questions.push({
     type: 'input',
