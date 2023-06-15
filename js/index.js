@@ -30,9 +30,9 @@ questions.push({
     name: 'license',
     choices: [
         'MIT',
-        'Apache',
-        'GPL',
-        'BSD',
+        'Apache 2.0',
+        'GNU GPL V3',
+        'MPL 2.0',
         'None'
     ]
 });
@@ -75,7 +75,7 @@ function writeToFile(fileName, READMEpageContent) {
 // Created a function to initialize app
 function init() {
     // declared a variable to store the file name
-    var fileName = 'README.md';
+    var fileName = 'newREADME.md';
     writeToFile(fileName, data);
 }
 
