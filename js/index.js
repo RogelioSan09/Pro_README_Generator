@@ -49,6 +49,36 @@ questions.push({
     name: 'email'
 });
 
+// Passed the array of questions to the prompt method
+// then stored the user's responses in a variable called data
+inquirer.prompt(questions).then((response) => {
+    console.log(response);
+    data = `# ${response.title}
+    ## Description
+    ${response.description}
+    ## Table of Contents
+    * [Installation](#installation)
+    * [Usage](#usage)
+    * [Contribution Guidelines](#contribution-guidelines)
+    * [Test Instructions](#test-instructions)
+    * [License](#license)
+    * [Questions](#questions)
+    ## Installation
+    ${response.installation}
+    ## Usage
+    ${response.usageInfo}
+    ## Contribution Guidelines
+    ${response.guidelines}
+    ## Test Instructions
+    ${response.testInstructions}
+    ## License
+    ${response.license}
+    ## Questions
+    GitHub: [${response.github}]
+    Email: ${response.email}
+    `;
+});
+
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     
