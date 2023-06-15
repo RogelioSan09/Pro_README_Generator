@@ -1,31 +1,34 @@
 // Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown.js');
 
 // Created an array of questions for user input
 const questions = [];
-questions.push({
+
+questions.push(
+    {
     type: 'input',
     message: 'What is your project title?',
     name: 'title'
-});
-questions.push({
+    },
+    {
     type: 'input',
-    message: 'Description of your program?',
+    message: 'Describe your program:',
     name: 'description'
-});
-questions.push({
+    },
+    {
     type: 'input',
     message: 'Installation instructions?',
     name: 'installation'
-});
-questions.push({
+    },
+    {
     type: 'input',
     message: 'Usage information?',
     name: 'usageInfo'
-});
-questions.push({
-    type: 'input',
+    },
+    {
+    type: 'list',
     message: 'Choose a license:',
     name: 'license',
     choices: [
@@ -35,38 +38,32 @@ questions.push({
         'MPL 2.0',
         'None'
     ]
-});
-questions.push({
+    },
+    {
     type: 'input',
     message: 'Contribution Guidelines?',
     name: 'guidelines'
-});
-questions.push({
+    },
+    {
     type: 'input',
-    message: 'Test Instructions?',
+    message: 'What command must be used to run tests?',
     name: 'testInstructions'
-});
-questions.push({
+    },
+    {
     type: 'input',
     message: 'What is your GitHub username?',
     name: 'github'
-});
-questions.push({
+    },
+    {
     type: 'input',
     message: 'What is your email address?',
     name: 'email'
-});
-
-// Passed the array of questions to the prompt method
-// then stored the user's responses in a variable called data
-inquirer.prompt(questions).then((data) => {
-    console.log(data);
-    const READMEpageContent = generateMarkdown(data);
-    return READMEpageContent;
-});
+    },
+);
 
 // Created a function to write README file
 function writeToFile(fileName, READMEpageContent) {
+    // Used the fs.writeFile method to create the file
     fs.writeFile(fileName, READMEpageContent, (err) =>
         err ? console.log(err) : console.log('The file has been created!')
     );
@@ -75,9 +72,15 @@ function writeToFile(fileName, READMEpageContent) {
 // Created a function to initialize app
 function init() {
     // declared a variable to store the file name
-    var fileName = 'newREADME.md';
-    writeToFile(fileName, data);
-}
+    const fileName = 'newREADME.md';
+    // Passed the array of questions to the prompt method, then stored the user's responses in a variable called data
+    inquirer.prompt(questions).then((data) => {
+        // Called the generateMarkdown function and passed in the data variable
+        const READMEpageContent = generateMarkdown(data);
+        // Called the writeToFile function and passed in the fileName and READMEpageContent variables
+        writeToFile(fileName, READMEpageContent);
+    });
+};
 
 // Function called to initialize app
 init();

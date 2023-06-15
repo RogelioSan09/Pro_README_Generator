@@ -72,6 +72,7 @@ function generateMarkdown(data) {
   * [Tests](#tests)
   * [Questions](#questions)
   ## Installation
+  Must install the following to run this program:
   ${data.installation}
   ## Usage
   ${data.usageInfo}
@@ -81,10 +82,11 @@ function generateMarkdown(data) {
   ## Contributing
   ${data.guidelines}
   ## Tests
+  To run tests, run the following command:
   ${data.testInstructions}
   ## Questions
-  GitHub: [${data.github}]
-  Email: ${data.email}
+  For all inquiries regarding this project, please contact me at ${data.email}
+  Interested in viewing more of my projects? You may do so by visiting my Github page at [${data.github}](https://github.com/${data.github})
 `;
 }
 
