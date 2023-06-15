@@ -8,8 +8,8 @@ Within the terminal run the following commands:
 - npm i
 - node index.js
 
-## Usage
-![Create README]()
+## Walkthrough Demo
+https://drive.google.com/file/d/1IQBAs09zqus4Ggx1VliTyBNv549hsNA4/view
 
 ## License
 Project is licensed under the MIT License
